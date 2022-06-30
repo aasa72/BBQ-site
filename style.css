@@ -1,7 +1,12 @@
-body { 
+* {
+  box-sizing: border-box;
+}
+
+body {
  margin: 0;
  font-family: 'Source Sans Pro', sans-serif;
  font-weight: 900;
+ color: #404040;
 }
  
 /*main-section*/
@@ -11,7 +16,6 @@ body {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  border: 1px solid magenta;
   padding: 0 5px;
   color: #f18119;
 }
@@ -20,8 +24,9 @@ body {
   background-image: url(jon-tyson-kctt4tL1dkE-unsplash.jpg);
   background-size: cover;
   object-fit: cover;
+  background-position: center;
   background-color: #404040;
-  opacity: .6;
+  background-blend-mode: multiply;
 }
 
 .main-top {
@@ -29,7 +34,7 @@ body {
   opacity: 1;
 }
 
-.main-top p{
+.main-top p {
   display: inline-block;
   font-family: 'Source Sans Pro, black', sans-serif;
   font-size: .65rem;
@@ -37,7 +42,8 @@ body {
   text-transform: uppercase;
   letter-spacing: 1.5px;
   margin: 0 auto;
-  border-top: 8px solid #f18119;
+  border-top: 8px solid #ff713b;
+  border-image: linear-gradient(to left, #ff713b, #ffa51d) 1;
 }
 
 h1 {
@@ -47,6 +53,7 @@ h1 {
   color: #fff;
   margin: 0;
   letter-spacing: 0px;
+  padding: 3em 0;
 }
 
 .main-sub-title {
@@ -58,21 +65,27 @@ h1 {
 /*sign-up-section*/
 
 .sign-up-section {
-  width: 90%;
-  border: 1px solid magenta;
+  max-width: 400px;
   margin: 0 auto;
   text-align: center;
   color: #404040;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: .5em;
 }
 
-h2{
+h2 {
   font-size: 1.3rem;
-  
+  margin-bottom: .1em;
 }
 
 h3 {
   color:#f18119;
   font-size: 1rem;
+  margin-top: 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .body-text,
@@ -83,45 +96,85 @@ h3 {
 .body-text {
   font-size: 1rem;
   color: #5a5a5a;
+  margin-bottom: 2em;
 }
 
 .disclaimer {
   font-size: .6rem;
   color: #808080;
+  letter-spacing: 1px;
 }
 
 /*form*/
 
-input {
-  width: 75%;
+form {
+  width: 80%;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+input,
+.btn {
+  width: 100%;
+  font-family: inherit;
+  text-align: inherit;
   border: 1px solid #818181;
   border-radius: 7px;
   font-size: 1rem;
   font-weight: 300;
-  text-align: center;
   padding: .5em;
   margin: .5em;
 }
 
-#submit {
-  background-color:#f18119;
-  font-size: .6rem;
+.btn {
+  background-image: linear-gradient(270deg, #ff713b 0%, #ffa51d 100%);
+  font-size: .7rem;
   font-weight: bold;
+  color:#fff;
   text-transform: uppercase;
   letter-spacing: 1.5px;
   padding: 1em;
+  cursor: pointer;
+  transform: scale(1);
+  transition: transform 250ms;
+  border:0;
 }
 
-@media (min-width: 675px) {
+.btn:hover,
+.btn:focus {
+  transform: scale(1.2);
+}
+
+@media (min-width: 750px) {
   main {
     display: flex;
-    height: 100%;
+    min-height: 100vh;
   }
-  .main-section {
-    width: 65%;
+
+  .main-section, 
+  .sign-up-section {
+    width: 50%; 
+  }
+
+  h1 {
+    font-size: 5rem;
+    padding: 1em 0;
+  }
+
+  .main-sub-title {
+    font-size: 2rem;
   }
 
   .sign-up-section {
     width: 35%;
+    padding: 0 1em;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
   }
 }
